@@ -1,4 +1,4 @@
-// KATA #8 - Multiplication Table:
+// KATA #10 - Multiplication Table:
 
 const multiplicationTable = function (maxValue) {
   let result = "\n";

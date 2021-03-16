@@ -1,4 +1,4 @@
-// KATA #7 - CASE MAKER:
+// KATA #9 - CASE MAKER:
 
 const camelCase = (input) => {
   let array = [];
