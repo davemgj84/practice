@@ -1,4 +1,10 @@
-// Kata 1 - Sum the Largest Numbers:
+// Kata #1 - Sum the Largest Numbers:
+
+// In this exercise, we will be given an array of 2 or more numbers.
+// We will then have to find the two largest numbers in that array, and sum them together.
+
+// Create a function named sumLargestNumbers that will receive
+// an array of numbers and return the sum of the two largest numbers in that array.
 
 const sumLargestNumbers = function (data) {
   let highestNum = 0;
