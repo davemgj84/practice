@@ -7,7 +7,7 @@
 // with all of the whitespace characters converted to %20.
 // If there is whitespace on the outside of the string, you should only replace the whitespace within the string.
 
-const urlEncode = function (text) {
+const urlEncode = (text) => {
   text = text.trim();
   let newString = [];
   for (let i = 0; i < text.length; i++) {

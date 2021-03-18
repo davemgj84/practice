@@ -18,7 +18,7 @@ Our function must return an array with the coordinates of the spot as an [X, Y] 
 See the example input and output below for an illustration.
 */
 
-const whereCanIPark = function (spots, vehicle) {
+const whereCanIPark = (spots, vehicle) => {
   for (let y = 0; y < spots.length; y++) {
     for (let x = 0; x < spots[y].length; x++) {
       const spot = spots[y][x];

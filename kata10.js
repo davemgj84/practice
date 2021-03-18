@@ -10,7 +10,7 @@
   a square multiplication table where maxValue is the largest value in the table.
 */
 
-const multiplicationTable = function (maxValue) {
+const multiplicationTable = (maxValue) => {
   let result = "\n";
   for (let i = 1; i <= maxValue; i++) {
     for (let j = 1; j <= maxValue; j++) {

@@ -5,7 +5,7 @@
 // Create a function named instructorWithLongestName that will receive an array of instructor objects,
 // and return the object that has the longest name. If there are two instructors with the longest name, return the first one.
 
-const instructorWithLongestName = function (instructors) {
+const instructorWithLongestName = (instructors) => {
   let longestName = "";
   let index = 0;
   let object;

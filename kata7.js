@@ -9,7 +9,7 @@
   are too many dirty air samples, or Clean if the proportion of dirty samples is below the threshold.
 */
 
-const checkAir = function (samples, threshold) {
+const checkAir = (samples, threshold) => {
   let level = 0;
   for (let i = 0; i < samples.length; i++) {
     if (samples[i] === "dirty") {

@@ -5,7 +5,7 @@
 
 // Create a function named numberOfVowels that will receive a string and return the number of vowels in that string.
 
-const numberOfVowels = function (data) {
+const numberOfVowels = (data) => {
   let vowels = 0;
   for (let i = 0; i < data.length; i++) {
     if (

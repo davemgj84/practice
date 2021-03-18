@@ -15,7 +15,7 @@
   then you should omit the comma.
 */
 
-let repeatNumbers = function (data) {
+let repeatNumbers = (data) => {
   let string = [];
   for (let row = 0; row < data.length; row++) {
     for (let column = 1; column <= data[row][1]; column++) {

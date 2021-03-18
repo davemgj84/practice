@@ -6,7 +6,7 @@
 // Create a function named sumLargestNumbers that will receive
 // an array of numbers and return the sum of the two largest numbers in that array.
 
-const sumLargestNumbers = function (data) {
+const sumLargestNumbers = (data) => {
   let highestNum = 0;
   let nextHighestNum = 0;
   for (let i = 0; i < data.length; i++) {

@@ -5,7 +5,7 @@
 // Create a function named conditionalSum that will be given an array of numbers and a condition, in this case odd or even.
 // Given this condition, add up only the values which match that condition. If no values match the condition, return 0.
 
-const conditionalSum = function (values, condition) {
+const conditionalSum = (values, condition) => {
   let sum = 0;
   for (var i = 0; i < values.length; i++) {
     if (condition === "even" && values[i] % 2 === 0) {
