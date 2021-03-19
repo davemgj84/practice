@@ -26,6 +26,7 @@
 */
 
 const makeCase = (input, caseType) => {
+  // I created a function for each Casetype. These functions take a string(input from makeCase) and return the formatted string.
   const camel = (string) => {
     const stringArray = string.split(" ");
     const tempArray = [];
@@ -75,7 +76,7 @@ const makeCase = (input, caseType) => {
   };
 
   const vowel = (string) => {
-    const vowel = [];
+    const tempArray = [];
     for (let i = 0; i < string.length; i++) {
       if (
         string[i] === "a" ||
@@ -84,17 +85,17 @@ const makeCase = (input, caseType) => {
         string[i] === "o" ||
         string[i] === "u"
       ) {
-        vowel.push(string[i].toUpperCase());
+        tempArray.push(string[i].toUpperCase());
       } else {
-        vowel.push(string[i]);
+        tempArray.push(string[i]);
       }
     }
-    const results = vowel.join("");
+    const results = tempArray.join("");
     return results;
   };
 
   const consonant = (string) => {
-    const consonant = [];
+    const tempArray = [];
     for (let i = 0; i < string.length; i++) {
       if (
         string[i] === "a" ||
@@ -103,12 +104,12 @@ const makeCase = (input, caseType) => {
         string[i] === "o" ||
         string[i] === "u"
       ) {
-        consonant.push(string[i]);
+        tempArray.push(string[i]);
       } else {
-        consonant.push(string[i].toUpperCase());
+        tempArray.push(string[i].toUpperCase());
       }
     }
-    const results = consonant.join("");
+    const results = tempArray.join("");
     return results;
   };
 
@@ -122,6 +123,8 @@ const makeCase = (input, caseType) => {
     return results;
   };
 
+  // I then store all of the functions inside an array here. I could store them in either an array or an object but went with
+  // and array in this instance.
   const caseFunctions = [
     camel,
     pascal,
@@ -134,6 +137,8 @@ const makeCase = (input, caseType) => {
     lower,
   ];
 
+  // This array is purely for order of precedence. I will use it if the inputed caseType is an array
+  // and I will need to sort it.
   const ordered = [
     "camel",
     "pascal",
@@ -146,17 +151,19 @@ const makeCase = (input, caseType) => {
     "lower",
   ];
 
+  // This Function takes in the array of functions, along with the style(caseType) and the string (input)
+  // This function will call the appropriate function to format the inputted string accordingly.
   const format = (string, style, functionsArray) => {
     let results = null;
     for (let i = 0; i < functionsArray.length; i++) {
       if (style === functionsArray[i].name) {
         results = functionsArray[i](string);
       } else if (typeof style === "object") {
-        const reordered = style.sort((a, b) => {
+        const sortedArray = style.sort((a, b) => {
           return ordered.indexOf(a) - ordered.indexOf(b);
         });
-        for (let j = 0; j < reordered.length; j++) {
-          if (functionsArray[i].name === reordered[j]) {
+        for (let j = 0; j < sortedArray.length; j++) {
+          if (functionsArray[i].name === sortedArray[j]) {
             if (results === null) {
               results = functionsArray[i](string);
             } else {
@@ -169,6 +176,8 @@ const makeCase = (input, caseType) => {
     return results;
   };
 
+  // call and return the output from the format function. Taking in the input and caseType, as well
+  // as my array of functions. makeCase :)
   return format(input, caseType, caseFunctions);
 };
 
