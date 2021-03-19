@@ -17,21 +17,16 @@
 //   }
 // };
 
-// const fizzBuzz = () => {
-//   for (let i = 1; i <= 20; i++) {
-//     i % 3 === 0 && i % 5 === 0
-//       ? console.log("FizzBuzz")
-//       : i % 3 === 0
-//       ? console.log("Fizz")
-//       : i % 5 === 0
-//       ? console.log("Buzz")
-//       : console.log(i);
-//   }
-// };
-
 const fizzBuzz = () => {
-  for (i = 0; i < 20; )
-    console.log((++i % 3 ? "" : "Fizz") + (i % 5 ? "" : "Buzz") || i);
+  for (let i = 1; i <= 20; i++) {
+    i % 3 === 0 && i % 5 === 0
+      ? console.log("FizzBuzz")
+      : i % 3 === 0
+      ? console.log("Fizz")
+      : i % 5 === 0
+      ? console.log("Buzz")
+      : console.log(i);
+  }
 };
 
 fizzBuzz();
