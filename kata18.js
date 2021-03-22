@@ -57,6 +57,7 @@ const squareCode = (message) => {
   }
 
   // Use the matrix to map the rows and columns and rearrange the arrays.
+
   // empty the tempArray variable so it may be reused
   tempArray = [];
 
