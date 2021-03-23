@@ -156,9 +156,7 @@ const makeCase = (input, caseType) => {
   const format = (string, style, functionsArray) => {
     let results = null;
     for (let i = 0; i < functionsArray.length; i++) {
-      if (style === functionsArray[i].name) {
-        results = functionsArray[i](string);
-      } else if (typeof style === "object") {
+      if (typeof style === "object") {
         const sortedArray = style.sort((a, b) => {
           return ordered.indexOf(a) - ordered.indexOf(b);
         });
@@ -171,6 +169,8 @@ const makeCase = (input, caseType) => {
             }
           }
         }
+      } else if (style === functionsArray[i].name) {
+        results = functionsArray[i](string);
       }
     }
     return results;
