@@ -25,121 +25,110 @@
 
 */
 
+/**************************************************
+ *  Case Functions for each potential case type:  *
+ *************************************************/
+
+const camel = (string) => {
+  const camelInput = string.split(" ");
+  const camelArray = [];
+  for (let i = 1; i < camelInput.length; i++) {
+    const word = camelInput[i][0].toUpperCase() + camelInput[i].substring(1);
+    camelArray.push(word);
+  }
+  const results = camelInput[0] + camelArray.join("");
+  return results;
+};
+
+const pascal = (string) => {
+  const pascalInput = string.split(" ");
+  const pascalArray = [];
+  for (let i = 0; i < pascalInput.length; i++) {
+    const word = pascalInput[i][0].toUpperCase() + pascalInput[i].substring(1);
+    pascalArray.push(word);
+  }
+  const results = pascalArray.join("");
+  return results;
+};
+
+const snake = (string) => {
+  const snakeInput = string.split(" ");
+  const results = snakeInput.join("_");
+  return results;
+};
+
+const kebab = (string) => {
+  const kebabInput = string.split(" ");
+  const results = kebabInput.join("-");
+  return results;
+};
+
+const title = (string) => {
+  const titleInput = string.split(" ");
+  const titleArray = [];
+  for (let i = 0; i < titleInput.length; i++) {
+    const word = titleInput[i][0].toUpperCase() + titleInput[i].substring(1);
+    titleArray.push(word);
+  }
+  const results = titleArray.join(" ");
+  return results;
+};
+
+const vowel = (string) => {
+  const vowelArray = [];
+  for (let i = 0; i < string.length; i++) {
+    if (
+      string[i] === "a" ||
+      string[i] === "e" ||
+      string[i] === "i" ||
+      string[i] === "o" ||
+      string[i] === "u"
+    ) {
+      vowelArray.push(string[i].toUpperCase());
+    } else {
+      vowelArray.push(string[i]);
+    }
+  }
+  const results = vowelArray.join("");
+  return results;
+};
+
+const consonant = (string) => {
+  const consonantArray = [];
+  for (let i = 0; i < string.length; i++) {
+    if (
+      string[i] === "a" ||
+      string[i] === "e" ||
+      string[i] === "i" ||
+      string[i] === "o" ||
+      string[i] === "u"
+    ) {
+      consonantArray.push(string[i]);
+    } else {
+      consonantArray.push(string[i].toUpperCase());
+    }
+  }
+  const results = consonantArray.join("");
+  return results;
+};
+
+const upper = (string) => {
+  const results = string.toUpperCase();
+  return results;
+};
+
+const lower = (string) => {
+  const results = string.toLowerCase();
+  return results;
+};
+
+/***************************************************************************************
+ *  makeCase Function, which checks the case type and calls the appropriate Function:  *
+ **************************************************************************************/
+
 const makeCase = (input, caseType) => {
-  // I created a function for each Casetype. These functions take a string(input from makeCase) and return the formatted string.
-  const camel = (string) => {
-    const stringArray = string.split(" ");
-    const tempArray = [];
-    for (let i = 1; i < stringArray.length; i++) {
-      const word =
-        stringArray[i][0].toUpperCase() + stringArray[i].substring(1);
-      tempArray.push(word);
-    }
-    const results = stringArray[0] + tempArray.join("");
-    return results;
-  };
-
-  const pascal = (string) => {
-    const stringArray = string.split(" ");
-    const tempArray = [];
-    for (let i = 0; i < stringArray.length; i++) {
-      const word =
-        stringArray[i][0].toUpperCase() + stringArray[i].substring(1);
-      tempArray.push(word);
-    }
-    const results = tempArray.join("");
-    return results;
-  };
-
-  const snake = (string) => {
-    const stringArray = string.split(" ");
-    const results = stringArray.join("_");
-    return results;
-  };
-
-  const kebab = (string) => {
-    const stringArray = string.split(" ");
-    const results = stringArray.join("-");
-    return results;
-  };
-
-  const title = (string) => {
-    const stringArray = string.split(" ");
-    const tempArray = [];
-    for (let i = 0; i < stringArray.length; i++) {
-      const word =
-        stringArray[i][0].toUpperCase() + stringArray[i].substring(1);
-      tempArray.push(word);
-    }
-    const results = tempArray.join(" ");
-    return results;
-  };
-
-  const vowel = (string) => {
-    const tempArray = [];
-    for (let i = 0; i < string.length; i++) {
-      if (
-        string[i] === "a" ||
-        string[i] === "e" ||
-        string[i] === "i" ||
-        string[i] === "o" ||
-        string[i] === "u"
-      ) {
-        tempArray.push(string[i].toUpperCase());
-      } else {
-        tempArray.push(string[i]);
-      }
-    }
-    const results = tempArray.join("");
-    return results;
-  };
-
-  const consonant = (string) => {
-    const tempArray = [];
-    for (let i = 0; i < string.length; i++) {
-      if (
-        string[i] === "a" ||
-        string[i] === "e" ||
-        string[i] === "i" ||
-        string[i] === "o" ||
-        string[i] === "u"
-      ) {
-        tempArray.push(string[i]);
-      } else {
-        tempArray.push(string[i].toUpperCase());
-      }
-    }
-    const results = tempArray.join("");
-    return results;
-  };
-
-  const upper = (string) => {
-    const results = string.toUpperCase();
-    return results;
-  };
-
-  const lower = (string) => {
-    const results = string.toLowerCase();
-    return results;
-  };
-
-  // I then store all of the functions inside an array here. I could store them in either an array or an object but went with
-  // and array in this instance.
-  const caseFunctions = [
-    camel,
-    pascal,
-    snake,
-    kebab,
-    title,
-    vowel,
-    consonant,
-    upper,
-    lower,
-  ];
-
-  // This array is purely for order of precedence. I will use it if the inputed caseType is an array
-  // and I will need to sort it.
-  const ordered = [
+  // This array is the order I want to compare and sort with. Order of precedence:
+  const order = [
     "camel",
     "pascal",
     "snake",
@@ -151,34 +140,58 @@ const makeCase = (input, caseType) => {
     "lower",
   ];
 
-  // This Function takes in the array of functions, along with the style(caseType) and the string (input)
-  // This function will call the appropriate function to format the inputted string accordingly.
-  const format = (string, style, functionsArray) => {
-    let results = null;
-    for (let i = 0; i < functionsArray.length; i++) {
-      if (typeof style === "object") {
-        const sortedArray = style.sort((a, b) => {
-          return ordered.indexOf(a) - ordered.indexOf(b);
-        });
-        for (let j = 0; j < sortedArray.length; j++) {
-          if (functionsArray[i].name === sortedArray[j]) {
-            if (results === null) {
-              results = functionsArray[i](string);
-            } else {
-              results = functionsArray[i](results);
-            }
-          }
-        }
-      } else if (style === functionsArray[i].name) {
-        results = functionsArray[i](string);
-      }
-    }
-    return results;
-  };
+  // Convert caseType to an Array:
+  if (typeof caseType === "string") {
+    caseType = [caseType];
+  }
 
-  // call and return the output from the format function. Taking in the input and caseType, as well
-  // as my array of functions. makeCase :)
-  return format(input, caseType, caseFunctions);
+  // Sort the caseType array:
+  const sortedArray = caseType.sort((a, b) => {
+    return order.indexOf(a) - order.indexOf(b);
+  });
+
+  // Results starts as null:
+  let results = null;
+
+  // Loop through the array of caseTypes (sortedArray) and pass each element through the
+  // Switch Statement to be formatted based on caseType inputed:
+  for (let i = 0; i < sortedArray.length; i++) {
+    // checks if results is not null (if it is null, it is on the first loop).
+    // If it isn't null, update the input with the previous results.
+    if (results !== null) {
+      input = results;
+    }
+
+    switch (sortedArray[i]) {
+      case "camel":
+        results = camel(input);
+        break;
+      case "pascal":
+        results = pascal(input);
+        break;
+      case "snake":
+        results = snake(input);
+        break;
+      case "kebab":
+        results = kebab(input);
+        break;
+      case "title":
+        results = title(input);
+        break;
+      case "vowel":
+        results = vowel(input);
+        break;
+      case "consonant":
+        results = consonant(input);
+        break;
+      case "upper":
+        results = upper(input);
+        break;
+      case "lower":
+        results = lower(input);
+    }
+  }
+  return results;
 };
 
 console.log(makeCase("this is a string", "camel"));
