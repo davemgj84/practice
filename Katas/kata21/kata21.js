@@ -71,6 +71,7 @@ const numberGuesser = () => {
       // if user guesses above or below the range of numbers provided:
     } else if (guess > 10 || guess < 0) {
       attempts++;
+      guessed.push(guess);
       console.log(
         'What part of "a number from 1 to 10" do you not understand!?'
       );
