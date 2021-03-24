@@ -43,8 +43,7 @@ const lightsAfterNDays = (lights, days) => {
     lights = [...results];
     results = [];
   }
-  console.log(lights);
   return lights;
 };
 
-lightsAfterNDays(lights, days);
+console.log(lightsAfterNDays(lights, days));
