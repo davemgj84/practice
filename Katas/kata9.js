@@ -10,13 +10,13 @@
 */
 
 const camelCase = (input) => {
-  let array = [];
-  const edit = input.split(" ");
-  for (let i = 1; i < edit.length; i++) {
-    let word = edit[i][0].toUpperCase() + edit[i].substring(1);
-    array.push(word);
+  const camel = [];
+  const words = input.split(" ");
+  for (let i = 1; i < words.length; i++) {
+    const word = words[i][0].toUpperCase() + words[i].substring(1);
+    camel.push(word);
   }
-  let result = edit[0] + array.join("");
+  const result = words[0] + camel.join("");
   return result;
 };
 

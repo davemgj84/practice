@@ -11,16 +11,10 @@
 
 const checkAir = (samples, threshold) => {
   let level = 0;
-  for (let i = 0; i < samples.length; i++) {
-    if (samples[i] === "dirty") {
-      level++;
-    }
+  for (const sample of samples) {
+    sample === "dirty" ? level++ : null;
   }
-  if (threshold < level / 10) {
-    return "Polluted";
-  } else {
-    return "Clean";
-  }
+  return threshold < level / 10 ? "Polluted" : "Clean";
 };
 
 console.log(
@@ -46,3 +40,9 @@ console.log(checkAir(["dirty", "dirty", "dirty", "dirty", "clean"], 0.25));
 console.log(
   checkAir(["clean", "dirty", "clean", "dirty", "clean", "dirty", "clean"], 0.9)
 );
+
+// Expected Output:
+
+// Polluted
+// Polluted
+// Clean
