@@ -5,19 +5,34 @@
 // Create a function named instructorWithLongestName that will receive an array of instructor objects,
 // and return the object that has the longest name. If there are two instructors with the longest name, return the first one.
 
+// const instructorWithLongestName = (instructors) => {
+//   let longestName = "";
+//   let index = 0;
+//   let object;
+//   for (let i = 0; i < instructors.length; i++) {
+//     let nameLength = instructors[i].name;
+//     if (longestName.length < nameLength.length) {
+//       longestName = nameLength;
+//       index = longestName.indexOf(longestName[i]);
+//       object = instructors[index];
+//     }
+//   }
+//   return object;
+// };
+
+// Refactor:
+
 const instructorWithLongestName = (instructors) => {
-  let longestName = "";
-  let index = 0;
-  let object;
-  for (let i = 0; i < instructors.length; i++) {
-    let nameLength = instructors[i].name;
-    if (longestName.length < nameLength.length) {
-      longestName = nameLength;
-      index = longestName.indexOf(longestName[i]);
-      object = instructors[index];
+  const totalLengths = [];
+  for (const instructor of instructors) {
+    const nameLength = instructor.name.length;
+    totalLengths.push(nameLength);
+  }
+  for (const instructor of instructors) {
+    if (instructor.name.length === Math.max(...totalLengths)) {
+      return instructor;
     }
   }
-  return object;
 };
 
 console.log(
@@ -35,3 +50,19 @@ console.log(
     { name: "Domascus", course: "Web" },
   ])
 );
+
+console.log(
+  instructorWithLongestName([
+    { name: "Matt", course: "Web" },
+    { name: "David", course: "iOS" },
+    { name: "Steve", course: "Web" },
+  ])
+);
+
+// Expected Output:
+
+// { name: 'Jeremiah', course: 'Web' }
+
+// { name: 'Domascus', course: 'Web' }
+
+// { name: 'David', course: 'iOS' }

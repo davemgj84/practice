@@ -6,7 +6,7 @@
 // Create a function named numberOfVowels that will receive a string and return the number of vowels in that string.
 
 const numberOfVowels = (data) => {
-  let vowels = 0;
+  let totalVowels = 0;
   for (let i = 0; i < data.length; i++) {
     if (
       data[i] === "a" ||
@@ -15,12 +15,18 @@ const numberOfVowels = (data) => {
       data[i] === "o" ||
       data[i] === "u"
     ) {
-      vowels += 1;
+      totalVowels += 1;
     }
   }
-  return vowels;
+  return totalVowels;
 };
 
 console.log(numberOfVowels("orange"));
 console.log(numberOfVowels("lighthouse labs"));
 console.log(numberOfVowels("aeiou"));
+
+// Expected Output:
+
+// 3
+// 5
+// 5
