@@ -20,8 +20,8 @@
 */
 
 const mostFrequentWords = (array, k) => {
-  if (k > array.length) {
-    return "Please check inputs - second input needs to be equal to or less than array length";
+  if (!array.length || !Array.isArray(array) || k > array.length) {
+    return "Please check inputs - First Input needs to be an array, with at least one element\nSecond input needs to be equal to or less than array length";
   }
   const results = [];
   const object = {};
@@ -47,15 +47,29 @@ const array1 = ["one", "two", "two", "three", "three", "three"];
 const array2 = ["one", "two", "two", "three", "three"];
 const array3 = ["bop", "ace", "cat", "ace", "bop", "cat", "app", "app"];
 const array4 = ["one", "two", "two", "three", "three", "three"];
+const emptyArray = [];
+const banana = "I am a BANANA!";
 
 console.log(mostFrequentWords(array1, 3));
 console.log(mostFrequentWords(array2, 3));
 console.log(mostFrequentWords(array3, 4));
-console.log(mostFrequentWords(array3, 100));
+console.log(mostFrequentWords(array4, 100));
+console.log(mostFrequentWords(emptyArray, 5));
+console.log(mostFrequentWords(banana, 3));
 
 // EXPECTED OUTPUT:
 
 // [ 'three', 'two', 'one' ]
+
 // [ 'three', 'two', 'one' ]
+
 // [ 'ace', 'app', 'bop', 'cat' ]
-// Please check inputs - second input needs to be equal to or less than array length
+
+// Please check inputs - First Input needs to be an array, with at least one element
+// Second input needs to be equal to or less than array length
+
+// Please check inputs - First Input needs to be an array, with at least one element
+// Second input needs to be equal to or less than array length
+
+// Please check inputs - First Input needs to be an array, with at least one element
+// Second input needs to be equal to or less than array length
