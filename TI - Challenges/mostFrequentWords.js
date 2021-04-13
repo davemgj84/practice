@@ -16,7 +16,7 @@
 
     ["three"];
 
-  If there are two words that have the same number of occurences, return the first occurence alphabetically
+  If there are two words that have the same number of occurences, return the occurence alphabetically
 */
 
 const mostFrequentWords = (array, k) => {
@@ -31,9 +31,9 @@ const mostFrequentWords = (array, k) => {
   // create an empty array that will hold the results
   const results = [];
 
-  // map through the array, to create key/value pairs in our object about.
-  // if the word(key) already exists within the object, increment the value,
-  // if it does not, create the key(word)/value pair and set initial value to 1.
+  // map through the array, to create key/value pairs in our object above.
+  // if the key(word) already exists within the object, increment the value,
+  // if it does not, create the key/value pair and set initial value to 1.
   array.map((word) => {
     if (object[word]) {
       object[word]++;
@@ -50,12 +50,14 @@ const mostFrequentWords = (array, k) => {
     .sort((a, b) => (a[1] !== b[1] ? a[1] - b[1] : b[0] < a[0] ? -1 : 1))
     .reverse();
 
-  // loop through the new array, based on "k", and push the key to the results array.
+  // loop through the new array, based on "k", and push the key(word) to the results array.
   for (let i = 0; i < k; i++) {
     results.push(newArray[i][0]);
   }
   return results;
 };
+
+// TESTS:
 
 const array1 = ["one", "two", "two", "three", "three", "three"];
 const array2 = ["one", "two", "two", "three", "three"];
