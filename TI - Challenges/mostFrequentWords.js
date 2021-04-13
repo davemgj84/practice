@@ -43,8 +43,9 @@ const mostFrequentWords = (array, k) => {
   });
 
   // Create a new array from the object. Each element in the array will be a
-  //  key/value pair from the object. They will be sorted based on the values,
-  // and then reversed so they are highest to lowest
+  // key/value pair from the object. They will be sorted based on the values,
+  // if two values are the same, they will be sorted alphabetically.
+  // Reversed so they are highest to lowest
   const newArray = Object.entries(object)
     .sort((a, b) => (a[1] !== b[1] ? a[1] - b[1] : b[0] < a[0] ? -1 : 1))
     .reverse();
