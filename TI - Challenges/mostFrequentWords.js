@@ -22,41 +22,21 @@
 */
 
 const mostFrequentWords = (array, k) => {
-  //   input checks
   if (!array.length || !Array.isArray(array)) {
     return "First input needs to be an array, with at least one element";
   } else if (isNaN(k)) {
     return "Second input needs to be a number";
   }
-
-  // Array will will take and return final results
-  const results = [];
-
-  // Create object, and map the array. Key/Value pairs represent the word, and occurence of the word
   const object = {};
   array.map((word) => {
-    if (object[word]) {
-      object[word]++;
-    } else {
-      object[word] = 1;
-    }
+    object[word] ? object[word]++ : (object[word] = 1);
   });
-
-  // create a new array from the object by making the key/value pairs individual elements in the array
-  // Sort the elements based on the highest to lowest values in reverse (most occurences)
-  // If two words(keys) have the same value, sort alphabetically:
   const newArray = Object.entries(object)
     .sort((a, b) => (a[1] !== b[1] ? a[1] - b[1] : b[0] < a[0] ? -1 : 1))
     .reverse();
-
-  // In the case that the "k" input is longer than the newArray, it would change k to the
-  // the length of the newArray - that way it will always return the most occuring words
-  //  also makes sure that number is always a whole number rounded down
-  let x;
+  const results = [];
+  let x = null;
   k > newArray.length ? (x = newArray.length) : (x = Math.floor(k));
-
-  // loop through new array, based on "x" and push the key (word) into results array.
-  // Example - if x === 3 - then results will have the top 3 most occurring words, in order
   for (let i = 0; i < x; i++) {
     results.push(newArray[i][0]);
   }
