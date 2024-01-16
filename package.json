@@ -1,0 +1,17 @@
+{
+  "name": "practice",
+  "description": "This repo is specifically for Katas, and other JS problems to work through and practice.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha 'tests/**/*.js'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^5.0.0",
+    "mocha": "^10.2.0"
+  }
+}
