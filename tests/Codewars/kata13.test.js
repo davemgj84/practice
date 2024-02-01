@@ -1,7 +1,8 @@
 import { assert } from "chai";
+
 import generateHashtag from "../../Codewars/kata13.js";
 
-describe("generateHashtag function", () => {
+describe("Kata 13 - generateHashtag function", () => {
   it("expects specific outputs", () => {
     assert.strictEqual(
       generateHashtag(""),
