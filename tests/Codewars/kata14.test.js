@@ -32,7 +32,7 @@ const tests = [
   ["aa / bb\ncc ^ dd\nee $ ff", ["/", "^", "$"], "aa\ncc\nee"],
 ];
 
-describe("Kata 14 - stripText function", function () {
+describe("Kata 14 - stripText function", () => {
   function runTest(text, markers, expected) {
     const title = `text = ${JSON.stringify(text)}, markers = ${JSON.stringify(
       markers
@@ -40,7 +40,7 @@ describe("Kata 14 - stripText function", function () {
 
     const actual = stripText(text, markers);
 
-    it(title, function () {
+    it(title, () => {
       assert.strictEqual(actual, expected);
     });
   }
