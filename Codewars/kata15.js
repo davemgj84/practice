@@ -14,24 +14,11 @@ Examples
 */
 
 export default function duplicateEncode(word) {
-  const characterMap = {};
-  const characterArray = word.toLowerCase().split("");
-
-  return characterArray
+  return word
+    .toLowerCase()
+    .split("")
     .map((char) => {
-      if (characterMap[char]) {
-        characterMap[char]++;
-      } else {
-        characterMap[char] = 1;
-      }
-      return char;
-    })
-    .map((char) => {
-      if (characterMap[char] === 1) {
-        return "(";
-      } else {
-        return ")";
-      }
+      return word.indexOf(char) === word.lastIndexOf(char) ? "(" : ")";
     })
     .join("");
 }
