@@ -17,8 +17,6 @@ export default function duplicateEncode(word) {
   return word
     .toLowerCase()
     .split("")
-    .map((char) => {
-      return word.indexOf(char) === word.lastIndexOf(char) ? "(" : ")";
-    })
+    .map((char) => (word.indexOf(char) === word.lastIndexOf(char) ? "(" : ")"))
     .join("");
 }
